@@ -4,18 +4,37 @@ import Drawer from '@mui/material/Drawer'
 import SwipeableDrawer from '@mui/material/SwipeableDrawer'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
+import SearchIcon from '@mui/icons-material/Search'
+import Button from '@mui/material/Button'
+
 import { logo, hamburger } from '../../assets'
 import { useState } from 'react'
-import { Searchbar } from '..'
+import { TextField } from '@mui/material'
 
 const drawerWidth = 200
 
-export function ResponsiveDrawer(props) {
-  const { setSearch } = props
+export function ResponsiveDrawer({
+  setQuery,
+  setStatus,
+  setGender,
+  status,
+  gender,
+}) {
   const [mobileOpen, setMobileOpen] = useState(false)
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
+  }
+
+  const handleStatus = (e) => {
+    setStatus(e.target.value || '')
+  }
+
+  const handleGender = (e) => {
+    setGender(e.target.value || '')
+  }
+
+  const onChange = (e) => {
+    setQuery(e.target.value)
   }
 
   return (
@@ -79,8 +98,34 @@ export function ResponsiveDrawer(props) {
             },
           }}
         >
-          <Searchbar />
+          <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+            <TextField
+              label="Search Character"
+              variant="standard"
+              onChange={onChange}
+            />
+          </Box>
+
+          <Box sx={{ marginTop: '10px' }}>
+            <select onChange={handleStatus} value={status || ''}>
+              <option value="">Status</option>
+              <option value="alive">alive</option>
+              <option value="dead">dead</option>
+              <option value="Unknow">Unknown</option>
+            </select>
+          </Box>
+          <Box sx={{ marginTop: '10px' }}>
+            <select onChange={handleGender} value={gender || ''}>
+              <option value="">Gender</option>
+              <option value="female">female</option>
+              <option value="male">male</option>
+              <option value="genderless">genderless</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </Box>
         </SwipeableDrawer>
+
         <Drawer
           variant="permanent"
           sx={{
@@ -96,7 +141,31 @@ export function ResponsiveDrawer(props) {
           }}
           open
         >
-          <Searchbar />
+          <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+            <TextField
+              label="Search Character"
+              variant="standard"
+              onChange={onChange}
+            />
+          </Box>
+          <Box sx={{ marginTop: '10px' }}>
+            <select onChange={handleStatus} value={status || ''}>
+              <option value="">Status</option>
+              <option value="alive">alive</option>
+              <option value="dead">dead</option>
+              <option value="unknown">Unknown</option>
+            </select>
+            <Box sx={{ marginTop: '10px' }}>
+              <select onChange={handleGender} value={gender || ''}>
+                <option value="">Gender</option>
+                <option value="female">female</option>
+                <option value="male">male</option>
+                <option value="genderless">genderless</option>
+                <option value="unknown">Unknown</option>
+              </select>
+            </Box>
+          </Box>
         </Drawer>
       </Box>
     </Box>
