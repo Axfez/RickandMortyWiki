@@ -6,12 +6,6 @@ export const dataApi = createApi({
     baseUrl: 'https://rickandmortyapi.com/api/character',
   }),
   endpoints: (builder) => ({
-    // getCharacters: builder.query({
-    //   query: () => '/character',
-    // }),
-    // getCharacterData: builder.query({
-    //   query: (search) => `/character/?name=${search}`,
-    // }),
     getCharacter: builder.mutation({
       query: ({ query, status, gender, page }) => {
         return {
@@ -20,11 +14,15 @@ export const dataApi = createApi({
         }
       },
     }),
+    getId: builder.mutation({
+      query: ({ id }) => {
+        return {
+          url: `/${id}`,
+          method: 'get',
+        }
+      },
+    }),
   }),
 })
 
-export const {
-  // useGetCharactersQuery,
-  // useGetCharacterDataQuery,
-  useGetCharacterMutation,
-} = dataApi
+export const { useGetCharacterMutation, useGetIdMutation } = dataApi

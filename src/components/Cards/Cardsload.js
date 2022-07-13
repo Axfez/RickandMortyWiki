@@ -6,7 +6,7 @@ export const Cardsload = ({ data }) => {
   const drawerWidth = 200
 
   return (
-    <Box sx={{ display: 'flex', position: 'relative', bgcolor: 'red' }}>
+    <Box sx={{ position: 'relative'}}>
       <Grid
         container
         justifyContent={{ xs: 'center', sm: 'center' }}
@@ -15,12 +15,16 @@ export const Cardsload = ({ data }) => {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           marginLeft: { sm: `${drawerWidth}px` },
           paddingTop: { xs: '200px' },
-          bgcolor: 'blue',
-          // bgcolor: 'blue'
         }}
       >
         {data?.results.map((character) => {
-          return <Card character={character} />
+          return (
+            <div className="row">
+              <div className="col-md-4 p-4">
+                <Card character={character} />
+              </div>
+            </div>
+          )
         })}
       </Grid>
     </Box>

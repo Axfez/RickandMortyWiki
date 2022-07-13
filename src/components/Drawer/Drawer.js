@@ -110,17 +110,17 @@ export function ResponsiveDrawer({
           <Box sx={{ marginTop: '10px' }}>
             <select onChange={handleStatus} value={status || ''}>
               <option value="">Status</option>
-              <option value="alive">alive</option>
-              <option value="dead">dead</option>
+              <option value="alive">Alive</option>
+              <option value="dead">Dead</option>
               <option value="Unknow">Unknown</option>
             </select>
           </Box>
           <Box sx={{ marginTop: '10px' }}>
             <select onChange={handleGender} value={gender || ''}>
               <option value="">Gender</option>
-              <option value="female">female</option>
-              <option value="male">male</option>
-              <option value="genderless">genderless</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="genderless">Genderless</option>
               <option value="unknown">Unknown</option>
             </select>
           </Box>
@@ -152,16 +152,16 @@ export function ResponsiveDrawer({
           <Box sx={{ marginTop: '10px' }}>
             <select onChange={handleStatus} value={status || ''}>
               <option value="">Status</option>
-              <option value="alive">alive</option>
-              <option value="dead">dead</option>
+              <option value="alive">Alive</option>
+              <option value="dead">Dead</option>
               <option value="unknown">Unknown</option>
             </select>
             <Box sx={{ marginTop: '10px' }}>
               <select onChange={handleGender} value={gender || ''}>
                 <option value="">Gender</option>
-                <option value="female">female</option>
-                <option value="male">male</option>
-                <option value="genderless">genderless</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="genderless">Genderless</option>
                 <option value="unknown">Unknown</option>
               </select>
             </Box>
